@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <title>by @toponedev on discord</title>
+
+        <style>
+            body {
+                background-color: black;
+                margin: 20px;
+            }
+
+            .grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                gap: 20px;
+            }
+
+            .item {
+                display: flex;
+                flex-direction: column;
+            }
+
+            video {
+                width: 100%;
+                display: block;
+            }
+
+            .label {
+                color: white;
+                margin-top: 4px;
+                text-align: center;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="grid" id="grid"></div>
+
+        <script>
+            const videos = [
+                { file: "videos/basic-obby.mp4", text: "basic obby" },
+                { file: "videos/daily-rewards.mp4", text: "daily-rewards" },
+                { file: "videos/dropper-tycoon.mp4", text: "dropper tycoon" },
+                { file: "videos/duel-queue.mp4", text: "duel queue" },
+                {
+                    file: "videos/grow-a-garden-shop.mp4",
+                    text: "grow a garden shop",
+                },
+                { file: "videos/level-system.mp4", text: "level system" },
+                { file: "videos/math-minigame.mp4", text: "math minigame" },
+                { file: "videos/merge-tycoon.mp4", text: "merge tycoon" },
+                { file: "videos/queue-system.mp4", text: "queue-system" },
+                {
+                    file: "videos/stage-select-obby.mp4",
+                    text: "stage select obby",
+                },
+            ];
+
+            const grid = document.getElementById("grid");
+
+            videos.forEach((v) => {
+                const item = document.createElement("div");
+                item.className = "item";
+                item.innerHTML = `<video controls preload="metadata"><source src="${v.file}"></video><div class="label">${v.text}</div>`;
+
+                grid.appendChild(item);
+            });
+        </script>
+    </body>
+</html>
